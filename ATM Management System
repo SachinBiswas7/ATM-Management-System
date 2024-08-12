@@ -1,0 +1,80 @@
+ #include<iostream>
+ #include<string>
+ using namespace std;
+  class atm
+  {
+  private :
+    int balance;
+  public :
+    atm(int bal)
+    {
+        balance = bal ;
+    }
+    int getbalance()
+    {
+        return balance;
+    }
+    int withdraw(int amount)
+    {
+        if(amount <=balance)
+        {
+            cout<<"withdraw sucessful..."<<endl;
+
+         balance = balance - amount;
+         cout<< "remaining balance : " <<balance <<endl;
+        }
+        else
+        {
+           cout << " you dont have sufficiant balance"<<endl;
+        }
+    }
+        int deposit (int a)
+        {
+            balance = balance +a;
+            cout<<"deposit sucessful..."<<endl;
+            cout<<"your current balance is : "<<balance <<endl;
+        }
+  };
+  int main ()
+  {
+      int choice,amount;
+      char op;
+      atm sachin(1000);
+
+      do
+      {
+system ( "cls");
+cout<<"Welcome to our ATM"<<endl;
+      cout<<"   1. view balance "<<endl;
+      cout<<"   2. cash withdraw "<<endl;
+      cout<<"   3. cash deposit "<<endl;
+      cout<<"   4. exit "<<endl;
+      cout<<"Enter your choice :  ";
+      cin>>choice;
+      switch (choice)
+      {
+          case 1 :
+              cout<<"your current balance is : "<<sachin.getbalance()<<endl;
+              break;
+          case 2 :
+            cout<<" enter the amount to withdraw : ";
+            cin>>amount;
+            sachin.withdraw(amount);
+            break;
+
+          case 3 :
+              cout<<" enter the amount to deposit : ";
+              cin>>amount;
+            sachin.deposit(amount);
+            break;
+          case 4 :
+            cout<< " thanks for using ATM"<<endl;
+            break;
+          default :
+            cout<<" invalid choice"<<endl;
+      }
+      cout<<" do you want to try another trasaction [yes(press y) /no] : ";
+      cin>>op;
+      }while ( op == 'y' || op == 'Y');
+  }
+
